@@ -28,7 +28,9 @@ jobs:
       with:
         context: .
         push: true
-        tags: ghcr.io/lichty/projects-website:${{ github.sha }}
+        tags: | 
+          ghcr.io/lichty/projects-website:${{ github.sha }}
+          ghcr.io/lichty/projects-website:latest
         build-args: |
           SSL_CERT_BASE64=${{ secrets.SSL_CERT_BASE64 }}
           SSL_KEY_BASE64=${{ secrets.SSL_KEY_BASE64 }}
