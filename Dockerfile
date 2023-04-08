@@ -42,7 +42,14 @@ COPY --from=builder /app/public ./public
 # https://nextjs.org/docs/advanced-features/output-file-tracing
 COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
 COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
-COPY ./ssl ./ssl
+
+ARG SSL_CERT_BASE64
+ARG SSL_KEY_BASE64
+
+RUN mkdir -p /app/ssl && \
+    echo "$SSL_CERT_BASE64" | base64 -d > /app/ssl/cert.pem && \
+    echo "$SSL_KEY_BASE64" | base64 -d > /app/ssl/key.pem
+
 COPY --chown=nextjs:nodejs ./server.js ./server_new.js
 COPY --chown=nextjs:nodejs ./init.sh /app/init.sh
 
