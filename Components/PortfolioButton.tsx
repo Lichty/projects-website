@@ -1,5 +1,5 @@
 import { Button, Typography, useTheme } from '@mui/material';
-import React from 'react';
+import React, { useState } from 'react';
 
 interface PortfolioButtonProps {
   title: string;
@@ -13,6 +13,16 @@ const PortfolioButton = ({
   link,
 }: PortfolioButtonProps) => {
   const theme = useTheme();
+  const [hover, setHover] = useState(false);
+
+  const handleHover = () => {
+    setHover(true);
+  };
+
+  const handleLeave = () => {
+    setHover(false);
+  };
+
   return (
     <Button
       variant="outlined"
@@ -40,15 +50,19 @@ const PortfolioButton = ({
           borderLeft: `1px solid ${theme.palette.secondary.main}`,
         },
       }}
+      onMouseEnter={handleHover}
+      onMouseLeave={handleLeave}
       color="secondary"
       href={link}
     >
       <Typography variant="h4" component="h2" gutterBottom>
         {title}
       </Typography>
-      <Typography variant="body1" color="text.secondary" paragraph>
-        {description}
-      </Typography>
+      {hover && (
+        <Typography variant="body1" color="text.secondary" paragraph>
+          {description}
+        </Typography>
+      )}
     </Button>
   );
 };
