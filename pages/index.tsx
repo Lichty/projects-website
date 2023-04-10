@@ -101,7 +101,7 @@ export default function Home() {
               </Box>
               <Box sx={{ height: '33%' }}>
                 <Button
-                  sx={{ borderRadius: 0, px: 4 }}
+                  sx={{ borderRadius: 0, px: 8, py: 1 }}
                   color="secondary"
                   variant="outlined"
                 >

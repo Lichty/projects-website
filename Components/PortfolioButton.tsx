@@ -24,6 +24,8 @@ const PortfolioButton = ({
         border: '0',
         borderRadius: 0,
         borderLeft: '1px solid rgba(0,0,0,0)',
+        borderTop: '1px solid rgba(0,0,0,0)',
+        borderBottom: '1px solid rgba(0,0,0,0)',
         borderRight: `1px solid ${theme.palette.secondary.main}`,
         '&:hover': {
           borderLeft: '1px solid rgba(0,0,0,0)',
