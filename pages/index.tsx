@@ -112,18 +112,13 @@ export default function Home() {
             <PortfolioButton
               title="Programming"
               description="A brief description"
-              link="portfolio"
+              link="Portfolio"
             />
             <PortfolioButton
               title="Knifemaking"
               description="A brief description"
-              link="portfolio"
+              link="Portfolio"
             />
-            {/* <PortfolioButton
-              title="Other stuff"
-              description="A brief description"
-              link="portfolio"
-            /> */}
           </Box>
         </Box>
       </Box>
